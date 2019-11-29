@@ -1,0 +1,49 @@
+
+{% extends 'cliente/principal_cliente.html' %}
+
+{% block body%}
+    <!-- Main -->
+    
+    <div id="main">
+           
+        <div id="main-container">
+                <div>
+                        <a href="crear_cliente" type="button "class="btn btn-danger"> Agregar Cliente </a>
+                </div>
+
+                <table >
+                    <thead>
+                        <tr>
+                            <th>Cedula</th>
+                            <th>Nombres</th>
+                            <th>Apellidos</th>
+                            <th>Celular</th>
+                            <th>Informacion</th>
+                            <th></th>
+                        </tr>
+                        </thead>
+                        {% for c in lista%}
+                            <tr>
+                                <th><a href="modificar_cliente?cedula={{c.cedula}}">{{c.cedula}}</a></th>
+                                <th>{{c.nombres}}</th>
+                                <th>{{c.apellidos}}</th>
+                                <th>{{c.celular}}</th>
+                                <th><a href="ver_cuenta?cedula={{c.cedula}}" class="btn btn-info">Cuenta</a></th>
+                                <th><a href="eliminar_cliente?cedula={{c.cedula}}" class="btn btn-danger">Eliminar Cliente</a></th>
+                                
+                            
+                                
+                            </tr>
+                        
+                
+                        {% endfor%}
+                
+                    </table>
+            </div>
+
+       
+    </div>
+{% endblock %}
+
+
+   

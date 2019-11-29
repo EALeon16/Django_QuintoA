@@ -1,0 +1,18 @@
+
+
+{% extends 'cliente/principal_cliente.html' %}
+
+{% block body%}
+
+
+<div class="container" text-align: center>  
+      <form method="POST" id="contact">{%csrf_token%}
+            {{formulario.as_p}}
+            
+            <button type="submit" class="btn btn-danger">Eliminar</button>
+         </form>
+   
+    
+  </div>
+  {% endblock %}
+ 

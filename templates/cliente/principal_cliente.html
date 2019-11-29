@@ -1,0 +1,162 @@
+{% load  staticfiles %}
+
+<!DOCTYPE HTML>
+<html>
+{% block header%}
+
+<head>
+	<title>E CORP</title>
+	
+	<link rel="icon" type="image/x-icon" href="{% static 'images/favicon.ico' %}">
+	
+	<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+	<meta name="description" content="" />
+	<meta name="keywords" content="" />
+	<link href='http://fonts.googleapis.com/css?family=Arimo:400,700' rel='stylesheet' type='text/css'>
+	
+	<!--[if lte IE 8]><script src="js/html5shiv.js"></script><![endif]-->
+	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+	<script src="{% static 'js/skel.min.js' %}"></script>
+	<script src="{% static 'js/skel-panels.min.js' %}"></script>
+	
+	<script src="{% static 'js/init.js' %}"></script>
+	
+	
+	<link rel="stylesheet" href="{% static 'css/tabla.css' %}">
+	<link rel="stylesheet" href="{% static 'css/form.css' %}" />
+	
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+
+	<link rel="stylesheet" href="{% static 'css/skel-noscript.css'% }" />
+	
+	<link rel="stylesheet" href="{% static 'css/style.css' %}" />
+	
+	<link rel="stylesheet" href="{% static 'css/style-desktop.css' %}" />
+	
+
+	<!--[if lte IE 8]><link rel="stylesheet" href="css/ie/v8.css" /><![endif]-->
+	<!--[if lte IE 9]><link rel="stylesheet" href="css/ie/v9.css" /><![endif]-->
+	
+</head>
+
+
+
+<body class="homepage">
+
+	<!-- Header -->
+	<div id="header">
+		<div class="container">
+
+			<!-- Logo -->
+			<div id="logo">
+				<h1><a href="/cliente">E CORP</a></h1>
+				<span>Te ayudamos a alcanzar tus sueños</span>
+			</div>
+
+			<!-- Nav -->
+			<nav id="nav">
+				<ul>
+					<li class="active"><a href="/cliente">INCIO</a></li>
+					<li><a href="/cliente/clientes">CLIENTES</a></li>
+					<li><a href="ahorro.html">AHORRO</a></li>
+					<li><a href="fag.html">Preguntas frecuentes</a></li>
+					<li><a href="{% url 'home_page'%}">Cerrar Sersion</a>
+				</ul>
+			</nav>
+		</div>
+	</div>
+	{% endblock %}
+
+	<!-- Main -->
+	{% block body %}
+	<div id="main" class="divider">
+
+		<div class="container">
+			<div class="row">
+				<div class="4u">
+					<section>
+						<form>
+							<center>
+								<h1>Inicio Sesion</h1>
+							</center>
+							<hr />
+							<input type="email" id="input-email" placeholder="TIPO CUENTA">
+							<input type="password" id="input-subject" placeholder="CLAVE">
+							<hr />
+							<input type="submit" value="Ingresar" id="input-submit">
+						</form>
+					</section>
+					<section>
+						<form>
+							<h1 align="center">TRANSACCION</h1>
+							</center>
+							<hr />
+							<input type="submit" value="banca personal" id="input-submit">
+							<input type="submit" value="banca empresarial" id="input-submit">
+							<input type="submit" value="banca seguros" id="input-submit">
+							<input type="submit" value="banca facturas" id="input-submit">
+							<h1 align="center">TARJETA DE CREDITO</h1>
+							</center>
+							<hr />
+							<input type="submit" value="credi vista" id="input-submit">
+							<input type="submit" value="credi mastercard" id="input-submit">
+						</form>
+					</section>
+				</div>
+				<div class="4u">
+					<section>
+						<h2>Ahorro Estudiantil</h2>
+						<a href="#" class="image full"><img src="{% static 'images/pic03.jpg' %}" alt="" /></a>
+						<p>Desde ya puedes empezar a ahorrar para la educacion
+							de tus hijos, complementandola con un seguro estudiantil y
+							con sorteos y de multiples becas.</p>
+						<p><a href="#" class="button">Mostar Más</a></p>
+					</section>
+					<section>
+						<h2>Solicita nuestros productos</h2>
+						<a href="#" class="image full"><img src="{% static 'images/pic04.jpg' %}" alt="" /></a>
+						<p>Conoce todos los productos que el banco tiene disponibles para ti. Solicitalo de una forma
+							fácil y rápida. Solo debes escoger el producto e ingresar tus datos.</p>
+						<p><a href="#" class="button">Mostar Más</a></p>
+					</section>
+				</div>
+				<div class="4u">
+					<section>
+						<h2>credito vehiculos</h2>
+						<a href="#" class="image"><img src="{% static 'images/pic02.jpg' %}" alt="" /></a>
+						<p>Solicita tu crédito o leasing, para financiar la compra
+							de vehiculos nuevos o usados, particulares o comerciales,
+							adquiridos directamente o a través de un consesionario con nuestros servicios.</p>
+						<p><a href="#" class="button">Mostar Más</a></p>
+					</section>
+					<section>
+						<h2>Credito Hipotecario</h2>
+						<a href="#" class="image"><img src="{% static 'images/pic05.jpg' %}" alt="" /></a>
+						<p>Un inmueble propio se ha convertido en el más anhelado sueño. Por eso es necesario elegir el
+							inmueble que esté acorde a las expectativas, al igual de el crédito que mejor se adapte a
+							tus posibilidades.</p>
+						<p><a href="#" class="button">Mostar Más</a></p>
+					</section>
+				</div>
+			</div>
+		</div>
+	</div>
+	{% endblock %}
+
+	<!-- Copyright -->
+	<div id="copyright">
+		<div class="container">
+			<h2>CONTACTENOS</h2>
+			<hr />
+			 CORREO: <a href="#"
+				title="Correo electronico">eduardo.leon@unl.edu.ec</a><br />
+			COPYRIGHT © 2017 -<a target="_blank" : href="" title="Eduardo A. Leon C.">Eduardo A. Leon C.
+				
+		</div>
+	</div>
+
+</body>
+
+
+</html>

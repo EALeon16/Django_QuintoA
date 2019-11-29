@@ -1,0 +1,16 @@
+{% extends 'cliente/principal_cliente.html' %}
+
+{% block body%}
+
+
+<div class="container" text-align: center>  
+    <form id="contact" action="" method="post"> {%csrf_token%}
+      <h3>Registro del Cliente</h3>
+      {{f.as_p}}
+      {{fc.as_p}}
+      <button type="submit" class="btn btn-success" >Guardar</button>
+    </form>
+   
+    
+  </div>
+  {% endblock %}

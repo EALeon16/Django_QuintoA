@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="es">
+ 
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1,
+            shrink-to-fit=no">
+        <meta name="description" content="Formulario de login con Bootstrap">
+        <meta name="author" content="Parzibyte">
+        <title>Formulario de login con Bootstrap</title>
+        <!-- Cargar el CSS de Boostrap-->
+        <link href="./css/bootstrap.min.css" rel="stylesheet">
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+    </head>
+
+    <body>
+        <main role="main" class="container my-auto">
+            <div class="row">
+                <div id="login" class="col-lg-4 offset-lg-4 col-md-6 offset-md-3
+                    col-12">
+                    <h2 class="text-center">Bienvenido de nuevo</h2>
+                    <img class="img-fluid mx-auto d-block rounded"
+                        src="https://picsum.photos/id/870/300/200" />
+
+                    <form method="post">{%csrf_token%}
+                            
+        
+                        <div class="form-group">
+                                {{formulario.as_p}}
+
+                        </div>
+                        
+                        <button type="submit" class="btn btn-primary mb-2">
+                            Entrar
+                        </button>
+                        <br>
+                        <a href="#">Contraseña olvidada</a>
+                    </form>
+                </div>
+            </div>
+        </main>
+    </body>
+
+</html>

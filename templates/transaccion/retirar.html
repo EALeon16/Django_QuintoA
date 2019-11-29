@@ -1,0 +1,23 @@
+{% extends 'cliente/principal_cliente.html' %}
+{% block body%}
+
+<div class="container" text-align: center>
+
+
+    <form method="POST" id="contact">{%csrf_token%}
+            <span>
+                    <h2>Cliente: {{cliente.nombres}}</h2>
+                </span>
+        <span>
+            <h2>Saldo Disponible: </h2>
+        </span>
+        <h2>{{cuenta.saldo}}</h2>
+        {{formulario.as_p}}
+        <button type="submit" class="btn btn-success">Guardar</button>
+
+    </form>
+
+
+</div>
+
+{% endblock %}
