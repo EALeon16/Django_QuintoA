@@ -72,7 +72,7 @@
                     <th>{{c.saldo}}</th>
                     <th><a href="{% url 'deposito' numero=c.numero %}" class="btn btn-info">Deposito</a></th>
                     <th><a href="{% url 'retirar' numero=c.numero %}" class="btn btn-info">Retirar</a></th>
-                    <th><a href="{% url 'agregar_cuenta' numero=c.numero %}" class="btn btn-danger">Agregar</a></th>
+                    <th><a href="/cliente/agregar_cuenta?id={{c.cliente_id}}" class="btn btn-danger">Agregar</a></th>
 
 
                     

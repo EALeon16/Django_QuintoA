@@ -29,4 +29,3 @@ class FormularioAgregar_Cuenta(forms.ModelForm):
     class Meta:
         model = Cuenta
         fields = ["numero", "tipoCuenta", "saldo"]
-        readonly_fields = ['numero']

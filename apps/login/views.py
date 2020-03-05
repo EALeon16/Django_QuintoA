@@ -30,6 +30,4 @@ def ingresar(request):
     return render (request, 'login/autenticar.html', context)
 
 
-def cerrar(request):
-    logout(request)
-    return  HttpResponseRedirect(reverse('home_page'))
+

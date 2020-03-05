@@ -28,7 +28,7 @@
 	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 
 
-	<link rel="stylesheet" href="{% static 'css/skel-noscript.css'% }" />
+	
 	
 	<link rel="stylesheet" href="{% static 'css/style.css' %}" />
 	
@@ -59,10 +59,15 @@
 				<ul>
 					<li class="active"><a href="/cliente">INCIO</a></li>
 					<li><a href="/cliente/clientes">CLIENTES</a></li>
-					<li><a href="ahorro.html">AHORRO</a></li>
-					<li><a href="fag.html">Preguntas frecuentes</a></li>
-					<li><a href="{% url 'home_page'%}">Cerrar Sersion</a>
-				</ul>
+					{% if request.user.is_authenticated %}
+					<li hidden><a href="/login">INICIAR SESION</a>
+						{% else %}
+						<li ><a href="/login">INICIAR SESION</a>
+							{% endif %}
+					{% if request.user.is_authenticated %}
+					<li><a href="{% url 'logout' %}">CERRAR SESION</a>
+						{% endif %}
+					</ul>
 			</nav>
 		</div>
 	</div>
@@ -76,16 +81,6 @@
 			<div class="row">
 				<div class="4u">
 					<section>
-						<form>
-							<center>
-								<h1>Inicio Sesion</h1>
-							</center>
-							<hr />
-							<input type="email" id="input-email" placeholder="TIPO CUENTA">
-							<input type="password" id="input-subject" placeholder="CLAVE">
-							<hr />
-							<input type="submit" value="Ingresar" id="input-submit">
-						</form>
 					</section>
 					<section>
 						<form>

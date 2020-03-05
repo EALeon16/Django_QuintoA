@@ -3,17 +3,34 @@
 {% block body%}
 
 <div class="container" text-align: center>
+ 
+<script>
+     var a = '{{listaC.tipoCuenta}}';
+    console.log(a);
+    if(a == 'corriente'){
+        $(document).ready(function()
+            {
+                $('#tipoCuentaF').val("ahorros")
+                                })
+        console.log("corriente");
+    }else{
+        $(document).ready(function()
+            {
+                $('#tipoCuentaF').val("corriente")
+                                })
+        console.log("corriente");
 
+    }
+</script>
 
     <form method="POST" id="contact">{%csrf_token%}
             <span>
-                    <h2>Cliente: {{cliente}}</h2>
+                    <h2>Cliente: {{persona.nombres}} {{persona.apellidos}}</h2>
                 </span>
         <span>
-            <h2>Tipo de cuenta: {{cuenta}}</h2>
-        </span>
-        {{f.as_p}}
-        <button type="submit" class="btn btn-success">Guardar</button>
+            <h2>Tipo de cuenta: {{listaC.tipoCuenta}} </h2>
+        {{fc}}
+        <button type="submit" class="btn btn-success" >Guardar</button>
 
     </form>
 

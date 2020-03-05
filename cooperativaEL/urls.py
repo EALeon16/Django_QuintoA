@@ -23,7 +23,8 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('cliente/', include('apps.cliente.urls')),
     path('login/', include('apps.login.urls')),
-    path('', views.homePage, name='home_page')
+    path('', views.homePage, name='home_page'),
+    path('logout/', include('apps.logout.urls')),
 ]
 
 if settings.DEBUG:

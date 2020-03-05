@@ -2,7 +2,7 @@ from django.shortcuts import render, redirect
 
 from .forms import FormularioCliente, FormularioModificarCliente, FormularioTransaccion, FormularioAgregar_Cuenta
 from .forms import FormularioCuenta
-
+import datetime
 from apps.modelo.models import Cliente, Cuenta, Transaccion
 from django.contrib.auth.decorators import login_required
 
@@ -23,7 +23,7 @@ def ver_cliente(request):
 @login_required
 def crear(request):
     initial_data = {
-        'numero':"111696h-00" + str(Cliente.objects.count()+1)
+        'numero':"111696h-0002" + str(Cliente.objects.count()+1)
     }
     formulario = FormularioCliente(request.POST)
     formularioCuenta = FormularioCuenta(request.POST or None, initial = initial_data)
@@ -192,34 +192,41 @@ def retirar(request, numero):
 
     
 
-def agregar_cuenta(request, numero):
-    initial_data = {
-        'numero':"111696h-00" + str(Cliente.objects.count()+1)
-    }
-    
-    cuenta = Cuenta.objects.get(numero=numero)
-    cliente = Cliente.objects.get(cliente_id = cuenta.cliente_id)   
-    formularioAgregar_Cuenta = FormularioAgregar_Cuenta(request.POST or None, initial = initial_data)
-    if request.method == 'POST':
-            if formularioAgregar_Cuenta.is_valid():
-                cliente = Cliente()
-                datosCuenta = formularioAgregar_Cuenta.cleaned_data
-                cuenta = Cuenta()
-                cuenta.numero = datosCuenta.get('numero')
-                cuenta.estado = True
-                cuenta.fechaApertura = datosCuenta.get('fechaApertura')
-                cuenta.tipoCuenta = datosCuenta.get('tipoCuenta')
-                cuenta.saldo = datosCuenta.get('saldo')
-                cuenta.cliente = cliente
-                cuenta.save()
-                return redirect(principal)
-    context = {
-        'cuenta': cuenta.tipoCuenta,
-        'cliente': cliente.nombres + " " + cliente.apellidos,
-        'f': formularioAgregar_Cuenta
+def agregar_cuenta(request):
 
-        
+    f = datetime.date.today()
+    formato = f.strftime("%Y-%m-%d")
+    personas = request.GET['id']
+    initial_data = {
+        'numero':"111696h-0002" + str(Cliente.objects.count()+1),
     }
+    persona = Cliente.objects.get(cliente_id = personas)
+    listaC = Cuenta.objects.get(cliente_id = personas)
+    formularioCuenta = FormularioCuenta(request.POST or None, initial = initial_data)
+    if request.method == 'POST':
+        if formularioCuenta.is_valid():
+            datosCuenta = formularioCuenta.cleaned_data #obtiene todos los datos del formulario cuenta
+            cuenta = Cuenta()
+            cuenta.numero = datosCuenta.get('numero')
+            cuenta.estado = True
+            cuenta.fechaApertura = datosCuenta.get('fechaApertura')
+            cuenta.tipoCuenta = datosCuenta.get('tipoCuenta')
+            cuenta.saldo = datosCuenta.get('saldo')
+            cuenta.cliente = persona
+            cuenta.save()
+            return redirect('/cliente')
+        else:
+            print("Error")    
+    context = {
+        'listaC': listaC,
+        'formato': formato,
+        'persona': persona,
+        'numeroC':"111696h-0001" + str(Cliente.objects.count()+1),
+        'fc': formularioCuenta,
+    }
+
+
+    
     return render (request, 'cuenta/agregar_cuenta.html', context)
     
     
